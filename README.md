@@ -9,3 +9,6 @@ In this code, we demonstrate the solution of the theory developed in ref. 1 to i
 3. ion_ion_code_both.m: In this code, 
 
 4. Capacitance_NaF_Ag_111.m: In this code, 
+
+# References
+1. Seal, A.; Tiwari, U.; Gupta, A.; Govind Rajan, A. Including van Der Waals and Soft Repulsive Interactions in the Poisson-Boltzmann Theory of Electrical Double Layers. Submitted.
