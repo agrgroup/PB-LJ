@@ -84,10 +84,17 @@ ULJplus=-4*pi*rho*epsilonpw.*(apavg^2)*((((sigmapw.^6)./(2.*(xmesh).^4))-((sigma
 ULJminus=-4*pi*rho*epsilonmw.*(amavg^2)*((((sigmamw.^6)./(2.*(xmesh).^4))-((sigmamw.^12)./(5.*(xmesh).^10)))...
     + ((sigmamw.^6./(2.*((Linf)-(xmesh)).^4))-((sigmamw.^12./(5.*((Linf)-(xmesh)).^10)))));
 
-fofpsi= (1+(zminus*aplus3c0*(exp(-zplus*psi - ULJplus)-1)./(1-zplus*aminus3c0))).^(aratio^3-1);
-gofpsi= fofpsi + (zplus*aminus3c0*(exp(zminus*psi - ULJminus)-fofpsi)) + (zminus*aplus3c0*fofpsi.*(exp(-zplus*psi - ULJplus)-1));
-nplus=fofpsi.*exp(-zplus*psi - ULJplus)./gofpsi;
-nminus=exp(zminus*psi - ULJminus)./gofpsi;
+if (am > ap) 		% Chemical Potential Expressions with anion diameter greater than cation diameter
+    fofpsi= (1+(zminus*aplus3c0*(exp(-zplus*psi - ULJplus)-1)./(1-zplus*aminus3c0))).^(aratio^3-1);
+    gofpsi= fofpsi + (zplus*aminus3c0*(exp(zminus*psi - ULJminus)-fofpsi)) + (zminus*aplus3c0*fofpsi.*(exp(-zplus*psi - ULJplus)-1));
+    nplus=fofpsi.*exp(-zplus*psi - ULJplus)./gofpsi;
+    nminus=exp(zminus*psi - ULJminus)./gofpsi;
+else			% Chemical Potential Expressions with cation diameter greater than anion diameter
+    fofpsi= (1+(zplus*aminus3c0*(exp(zminus*psi - ULJminus)-1)./(1-zminus*aplus3c0))).^(aratio^3-1);
+    gofpsi= fofpsi + (zminus*aplus3c0*(exp(-zplus*psi - ULJplus)-fofpsi)) + (zplus*aminus3c0*fofpsi.*(exp(zminus*psi - ULJminus)-1));
+    nplus=exp(-zplus*psi - ULJplus)./gofpsi;
+    nminus=fofpsi.*exp(zminus*psi - ULJminus)./gofpsi;
+end
 
 %%%% Calculations without ion-wall LJ interactions (U_LJ set to zero)
 
@@ -106,6 +113,19 @@ psi_zero=sol.y(1,:);
 
 ULJminus_zero=zeros(size(ULJminus));
 ULJplus_zero=zeros(size(ULJplus));
+
+if (am > ap) 		% Chemical Potential Expressions with anion diameter greater than cation diameter
+    fofpsi_zero= (1+(zminus*aplus3c0*(exp(-zplus*psi_zero - ULJplus_zero)-1)./(1-zplus*aminus3c0))).^(aratio^3-1);
+    gofpsi_zero= fofpsi_zero + (zplus*aminus3c0*(exp(zminus*psi_zero - ULJminus_zero)-fofpsi_zero)) + (zminus*aplus3c0*fofpsi_zero.*(exp(-zplus*psi_zero - ULJplus_zero)-1));
+    nplus_zero=fofpsi_zero.*exp(-zplus*psi_zero - ULJplus_zero)./gofpsi_zero;
+    nminus_zero=exp(zminus*psi_zero - ULJminus_zero)./gofpsi_zero;
+else			% Chemical Potential Expressions with cation diameter greater than anion diameter
+    fofpsi_zero= (1+(zplus*aminus3c0*(exp(zminus*psi_zero - ULJminus_zero)-1)./(1-zminus*aplus3c0))).^(aratio^3-1);
+    gofpsi_zero= fofpsi_zero + (zminus*aplus3c0*(exp(-zplus*psi - ULJplus)-fofpsi)) + (zplus*aminus3c0*fofpsi.*(exp(zminus*psi - ULJminus)-1));
+    nplus_zero=exp(-zplus*psi_zero - ULJplus_zero)./gofpsi_zero;
+    nminus_zero=fofpsi_zero.*exp(zminus*psi_zero - ULJminus_zero)./gofpsi_zero;
+end
+
 fofpsi_zero= (1+(zminus*aplus3c0*(exp(-zplus*psi_zero - ULJplus_zero)-1)./(1-zplus*aminus3c0))).^(aratio^3-1);
 gofpsi_zero= fofpsi_zero + (zplus*aminus3c0*(exp(zminus*psi_zero - ULJminus_zero)-fofpsi_zero)) + (zminus*aplus3c0*fofpsi_zero.*(exp(-zplus*psi_zero - ULJplus_zero)-1));
 nplus_zero=fofpsi_zero.*exp(-zplus*psi_zero - ULJplus_zero)./gofpsi_zero;
@@ -284,11 +304,19 @@ ULJminus= -4*pi*rho*epsilonmw*(amavg^2)*(((sigmamw^6/(2*(x)^4))-((sigmamw^12/(5*
 if(x==0 || x==Linf)
      ULJplus=inf;
      ULJminus=inf;
-end    
-fofpsi= (1+(zminus*aplus3c0*(exp(-zplus*psi - ULJplus)-1)./(1-zplus*aminus3c0))).^(aratio^3-1);
-gofpsi= fofpsi + (zplus*aminus3c0*(exp(zminus*psi - ULJminus)-fofpsi)) + (zminus*aplus3c0*fofpsi.*(exp(-zplus*psi - ULJplus)-1));
-nplus=fofpsi.*exp(-zplus*psi - ULJplus)./gofpsi;
-nminus=exp(zminus*psi - ULJminus)./gofpsi;
+end
+
+if (am > ap) 		% Chemical Potential Expressions with anion diameter greater than cation diameter
+    fofpsi= (1+(zminus*aplus3c0*(exp(-zplus*psi - ULJplus)-1)./(1-zplus*aminus3c0))).^(aratio^3-1);
+    gofpsi= fofpsi + (zplus*aminus3c0*(exp(zminus*psi - ULJminus)-fofpsi)) + (zminus*aplus3c0*fofpsi.*(exp(-zplus*psi - ULJplus)-1));
+    nplus=fofpsi.*exp(-zplus*psi - ULJplus)./gofpsi;
+    nminus=exp(zminus*psi - ULJminus)./gofpsi;
+else			% Chemical Potential Expressions with cation diameter greater than anion diameter
+    fofpsi= (1+(zplus*aminus3c0*(exp(zminus*psi - ULJminus)-1)./(1-zminus*aplus3c0))).^(aratio^3-1);
+    gofpsi= fofpsi + (zminus*aplus3c0*(exp(-zplus*psi - ULJplus)-fofpsi)) + (zplus*aminus3c0*fofpsi.*(exp(zminus*psi - ULJminus)-1));
+    nplus=exp(-zplus*psi - ULJplus)./gofpsi;
+    nminus=fofpsi.*exp(zminus*psi - ULJminus)./gofpsi;
+end
 
 differ=zeros(2,1);
 differ(1)=dpsidx;
@@ -314,10 +342,17 @@ am=((aminus3c0/c0)^(1/3));
 apavg=(ap+awall)/2;
 amavg=(am+awall)/2;
 
-fofpsi= (1+(zminus*aplus3c0*(exp(-zplus*psi)-1)./(1-zplus*aminus3c0))).^(aratio^3-1);
-gofpsi= fofpsi + (zplus*aminus3c0*(exp(zminus*psi)-fofpsi)) + (zminus*aplus3c0*fofpsi.*(exp(-zplus*psi)-1));
-nplus=fofpsi.*exp(-zplus*psi)./gofpsi;
-nminus=exp(zminus*psi)./gofpsi;
+if (am > ap) 		% Chemical Potential Expressions with anion diameter greater than cation diameter
+    fofpsi= (1+(zminus*aplus3c0*(exp(-zplus*psi)-1)./(1-zplus*aminus3c0))).^(aratio^3-1);
+    gofpsi= fofpsi + (zplus*aminus3c0*(exp(zminus*psi)-fofpsi)) + (zminus*aplus3c0*fofpsi.*(exp(-zplus*psi)-1));
+    nplus=fofpsi.*exp(-zplus*psi)./gofpsi;
+    nminus=exp(zminus*psi)./gofpsi;
+else			% Chemical Potential Expressions with cation diameter greater than anion diameter
+    fofpsi= (1+(zplus*aminus3c0*(exp(zminus*psi)-1)./(1-zminus*aplus3c0))).^(aratio^3-1);
+    gofpsi= fofpsi + (zminus*aplus3c0*(exp(-zplus*psi)-fofpsi)) + (zplus*aminus3c0*fofpsi.*(exp(zminus*psi)-1));
+    nplus=exp(-zplus*psi)./gofpsi;
+    nminus=fofpsi.*exp(zminus*psi)./gofpsi;
+end
 
 differ=zeros(2,1);
 differ(1)=dpsidx;
