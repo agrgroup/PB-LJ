@@ -76,12 +76,13 @@ ap=((aplus3c0/c0)^(1/3));
 am=((aminus3c0/c0)^(1/3));
 apavg=(ap+awall)/2;
 amavg=(am+awall)/2;
+apm=(ap+am)/2;
 
 % equations obtained from chemical potential expressions expression
 
-ULJplus=-4*pi*rho*epsilonpw.*(apavg^2)*((((sigmapw.^6)./(2.*(xmesh).^4))-((sigmapw.^12)./(5.*(xmesh).^10)))...
+ULJplus=-4*pi*rho*epsilonpw.*(apm^2)*((((sigmapw.^6)./(2.*(xmesh).^4))-((sigmapw.^12)./(5.*(xmesh).^10)))...
     + ((sigmapw.^6./(2.*((Linf)-(xmesh)).^4))-((sigmapw.^12./(5.*((Linf)-(xmesh)).^10)))));
-ULJminus=-4*pi*rho*epsilonmw.*(amavg^2)*((((sigmamw.^6)./(2.*(xmesh).^4))-((sigmamw.^12)./(5.*(xmesh).^10)))...
+ULJminus=-4*pi*rho*epsilonmw.*(apm^2)*((((sigmamw.^6)./(2.*(xmesh).^4))-((sigmamw.^12)./(5.*(xmesh).^10)))...
     + ((sigmamw.^6./(2.*((Linf)-(xmesh)).^4))-((sigmamw.^12./(5.*((Linf)-(xmesh)).^10)))));
 
 if (am > ap) 		% Chemical Potential Expressions with anion diameter greater than cation diameter
@@ -296,10 +297,11 @@ ap=((aplus3c0/c0)^(1/3));
 am=((aminus3c0/c0)^(1/3));
 apavg=(ap+awall)/2;
 amavg=(am+awall)/2;
-ULJplus=  -4*pi*rho*epsilonpw*(apavg^2)*(((sigmapw^6/(2*(x)^4))-((sigmapw^12/(5*(x)^10))))...
+apm=(ap+
+ULJplus=  -4*pi*rho*epsilonpw*(apm^2)*(((sigmapw^6/(2*(x)^4))-((sigmapw^12/(5*(x)^10))))...
           + ((sigmapw^6/(2*((Linf)-(x))^4))-((sigmapw^12/(5*((Linf)-(x))^10)))));
           
-ULJminus= -4*pi*rho*epsilonmw*(amavg^2)*(((sigmamw^6/(2*(x)^4))-((sigmamw^12/(5*(x)^10))))...
+ULJminus= -4*pi*rho*epsilonmw*(apm^2)*(((sigmamw^6/(2*(x)^4))-((sigmamw^12/(5*(x)^10))))...
           + ((sigmamw^6/(2*((Linf)-(x))^4))-((sigmamw^12/(5*((Linf)-(x))^10)))));
 if(x==0 || x==Linf)
      ULJplus=inf;
