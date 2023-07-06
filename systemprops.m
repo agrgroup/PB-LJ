@@ -1,12 +1,12 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%																								%%
-%% PARAMETER REFERENCES																					%%
-%% ionic diameters reference: Israelachvili, Intermolecular and surface forces, Academic Press, 2011.; Nightingale, J. Phys. Chem., 1959, 63, 1381–1387.					%%
-%% inter-ionic LJ interaction parameters reference: Zeron et al., J. Chem. Phys., 2019, 151, 134504.; Xantheas and Dany, J. Phys. Chem., 1996, 100, 3989–3995				%%
-%% LJ parameters for graphene (wall) reference:  Cheng and Steele, J. Chem. Phys., 1990, 92, 3858.												%%
-%%																								%%
+%%																								                                                                                         %%
+%% PARAMETER REFERENCES																					                                                                                 %%
+%% ionic diameters reference: Israelachvili, Intermolecular and surface forces, Academic Press, 2011.; Nightingale, J. Phys. Chem., 1959, 63, 1381–1387.					             %%
+%% inter-ionic LJ interaction parameters reference: Zeron et al., J. Chem. Phys., 2019, 151, 134504.; Xantheas and Dany, J. Phys. Chem., 1996, 100, 3989–3995				             %%
+%% LJ parameters for graphene (wall) reference:  Cheng and Steele, J. Chem. Phys., 1990, 92, 3858.												                                         %%
+%%																								                                                                                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
