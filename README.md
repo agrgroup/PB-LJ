@@ -1,4 +1,4 @@
-## PB-LJ EDL Model
+# PB-LJ EDL Model
 
 In this code, we demonstrate the solution of the theory developed in <a href="https://arxiv.org/abs/2302.07628">Incorporating Ion-Specific van der Waals and Soft Repulsive Interactions in the Poisson-Boltzmann Theory of Electrical Double Layers</a> to incorporate van der Waals and soft repulsive interactions into a Poisson-Boltzmann framework. There are four MATLAB codes, as documented below:
 
@@ -10,7 +10,7 @@ In this code, we demonstrate the solution of the theory developed in <a href="ht
 
 4. sigma_epsilon_fitting.m: In this code, we fit the Lennard-Jones (LJ) parameters for the polyatomic sulfate ion using the LJ parameters for the constituent sulfur and oxygen atoms.
 
-# Citation
+## Citation
 
 ```bibtex
 @article{seal2023incorporating,
