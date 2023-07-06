@@ -1,4 +1,4 @@
-# PB-LJ
+## PB-LJ EDL Model
 
 In this code, we demonstrate the solution of the theory developed in <a href="https://arxiv.org/abs/2302.07628">Incorporating Ion-Specific van der Waals and Soft Repulsive Interactions in the Poisson-Boltzmann Theory of Electrical Double Layers</a> to incorporate van der Waals and soft repulsive interactions into a Poisson-Boltzmann framework. There are four MATLAB codes, as documented below:
 
