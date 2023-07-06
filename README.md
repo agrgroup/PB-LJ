@@ -10,5 +10,13 @@ In this code, we demonstrate the solution of the theory developed in <a href="ht
 
 4. sigma_epsilon_fitting.m: In this code, we fit the Lennard-Jones (LJ) parameters for the polyatomic sulfate ion using the LJ parameters for the constituent sulfur and oxygen atoms.
 
-# References
-1. Seal, A.; Tiwari, U.; Gupta, A.; Govind Rajan, A. Including van Der Waals and Soft Repulsive Interactions in the Poisson-Boltzmann Theory of Electrical Double Layers. Submitted.
+# Citation
+
+```bibtex
+@article{seal2023incorporating,
+  title={Incorporating Ion-Specific van der Waals and Soft Repulsive Interactions in the Poisson-Boltzmann Theory of Electrical Double Layers},
+  author={Seal, Aniruddha and Tiwari, Utkarsh and Gupta, Ankur and Rajan, Ananth Govind},
+  journal={arXiv preprint arXiv:2302.07628},
+  year={2023}
+}
+```
